@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "serve": "rimraf ./build && cross-env NODE_ENV=development rollup --config --watch",
-    "build": "rimraf ./build && cross-env NODE_ENV=production rollup --config",
-    "lite-server": "lite-server --baseDir='./build'",
-    "report": "npm run build && lite-server --baseDir='./report'"
+    "clean": "rimraf ./build ./report",
+    "serve": "npm run clean && cross-env NODE_ENV=development rollup --config --watch",
+    "build": "npm run clean && cross-env NODE_ENV=production rollup --config",
+    "build:display": "npm run build && lite-server --baseDir='./build'",
+    "build:report": "npm run clean && cross-env NODE_ENV=production BUILD_REPORT=true rollup --config && lite-server --baseDir='./report'"
   },
   "keywords": [
     "HyperApp",

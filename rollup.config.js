@@ -13,6 +13,7 @@ const postcssConfig = require('./postcss.config');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 const isProduction = process.env.NODE_ENV === 'production';
+const isBuildReport = process.env.BUILD_REPORT === 'true';
 
 export default {
   input: 'src/main.js',
@@ -36,14 +37,14 @@ export default {
     }),
     resolve(),
     commonjs(),
-    isProduction &&
+    isBuildReport &&
       visualizer({
         filename: 'report/index.html',
       }),
     isProduction && terser(),
     html2({
-      template: 'src/public/index.html',
-      favicon: 'src/public/favicon.ico',
+      template: 'public/index.html',
+      favicon: 'public/favicon.ico',
     }),
     isDevelopment && livereload('build'),
     isDevelopment &&
