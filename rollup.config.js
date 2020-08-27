@@ -6,6 +6,7 @@ import livereload from 'rollup-plugin-livereload';
 import html2 from 'rollup-plugin-html2';
 import { uglify } from 'rollup-plugin-uglify';
 import postcss from 'rollup-plugin-postcss';
+import { nanoid } from 'nanoid';
 
 const postcssConfig = require('./postcss.config');
 
@@ -15,7 +16,8 @@ const isProduction = process.env.NODE_ENV === 'production';
 export default {
   input: 'src/main.js',
   output: {
-    file: './build/bundle.js',
+    // Hashed file name on production
+    file: isProduction ? `./build/bundle.${nanoid()}.js` : './build/bundle.js',
     format: 'iife',
     name: 'bundle',
   },
