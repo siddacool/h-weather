@@ -4,7 +4,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
 import html2 from 'rollup-plugin-html2';
-import { uglify } from 'rollup-plugin-uglify';
+import { terser } from 'rollup-plugin-terser';
 import postcss from 'rollup-plugin-postcss';
 import { nanoid } from 'nanoid';
 
@@ -32,7 +32,7 @@ export default {
     }),
     resolve(),
     commonjs(),
-    isProduction && uglify(),
+    isProduction && terser(),
     html2({
       template: 'src/public/index.html',
       favicon: 'src/public/favicon.ico',
