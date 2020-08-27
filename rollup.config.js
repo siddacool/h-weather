@@ -20,6 +20,9 @@ export default {
     file: isProduction ? `./build/bundle.${nanoid()}.js` : './build/bundle.js',
     format: 'iife',
     name: 'bundle',
+    globals: {
+      hyperapp: 'hyperapp',
+    },
   },
   plugins: [
     postcss({
