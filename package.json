@@ -2,14 +2,16 @@
   "name": "hyperapp-demo-rollup",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "serve": "rimraf ./build && cross-env NODE_ENV=development rollup --config --watch",
     "build": "rimraf ./build && cross-env NODE_ENV=production rollup --config",
     "lite-server": "lite-server -c ./lite-server-config.json"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "HyperApp",
+    "Rollup"
+  ],
+  "author": "Siddhesh Mangela",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.11.4",
