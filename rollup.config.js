@@ -7,6 +7,7 @@ import html2 from 'rollup-plugin-html2';
 import { terser } from 'rollup-plugin-terser';
 import postcss from 'rollup-plugin-postcss';
 import { nanoid } from 'nanoid';
+import visualizer from 'rollup-plugin-visualizer';
 
 const postcssConfig = require('./postcss.config');
 
@@ -35,6 +36,10 @@ export default {
     }),
     resolve(),
     commonjs(),
+    isProduction &&
+      visualizer({
+        filename: 'report/index.html',
+      }),
     isProduction && terser(),
     html2({
       template: 'src/public/index.html',
