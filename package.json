@@ -38,6 +38,7 @@
     "rollup-plugin-uglify": "^6.0.4"
   },
   "dependencies": {
+    "hyperapp": "^2.0.8",
     "nanoid": "^3.1.12",
     "tailwindcss": "^1.7.5"
   }
