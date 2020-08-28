@@ -1,9 +1,12 @@
 import { text, app } from 'hyperapp';
-import { main, button, ul, li } from '@hyperapp/html';
+import { div, button, ul, li } from '@hyperapp/html';
 
+import Header from './components/Header';
+import SearchControl from './components/SearchControl';
+import City from './components/City';
 import Input from './components/ui/Input';
 
-export default function App(storeState) {
+export default function App({ rootNode }) {
   const AddTodo = (state) => ({
     ...state,
     todos: state.todos.concat(state.value),
@@ -15,19 +18,27 @@ export default function App(storeState) {
   });
 
   app({
-    init: storeState(),
-    view: ({ todos, value }) =>
-      main({}, [
-        Input({
-          value,
-          onInput: NewValue,
-        }),
-        button({ onclick: AddTodo }, text('Add')),
-        ul(
-          {},
-          todos.map((todo) => li({}, text(todo))),
-        ),
-      ]),
-    node: document.getElementById('root'),
+    init: { title: 'Go Weather', todos: [], value: 'Tha Value' },
+    view: ({ title, todos, value }) =>
+      div(
+        {
+          class: 'home',
+        },
+        [
+          Header({ title }),
+          SearchControl(),
+          City(),
+          Input({
+            value,
+            onInput: NewValue,
+          }),
+          button({ onclick: AddTodo }, text('Add One')),
+          ul(
+            {},
+            todos.map((todo) => li({}, text(todo))),
+          ),
+        ],
+      ),
+    node: rootNode,
   });
 }
