@@ -3,9 +3,11 @@ import { div } from '@hyperapp/html';
 import SearchBox from './SearchBox';
 import SearchResultDropdown from './SearchResultDropdown';
 
+
 export default function SearchControl({
   searchValue,
   searchResultDropDownOpen,
+  cities,
 }) {
   return div(
     {
@@ -16,7 +18,7 @@ export default function SearchControl({
     [
       SearchBox({ searchValue }),
       searchResultDropDownOpen || (searchValue && searchValue.trim() !== '')
-        ? SearchResultDropdown()
+        ? SearchResultDropdown({ cities })
         : null,
     ],
   );

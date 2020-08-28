@@ -23,11 +23,25 @@ export default function App({ rootNode }) {
   app({
     init: {
       title: 'Hey Weather!',
-      todos: [],
+      cities: [
+        {
+          id: '1',
+          name: 'New York',
+        },
+        {
+          id: '2',
+          name: 'Mumbai',
+        },
+        {
+          id: '3',
+          name: 'Goa',
+        },
+      ],
       searchValue: '',
+      city: '',
       searchResultDropDownOpen: false,
     },
-    view: ({ title, searchValue, searchResultDropDownOpen }) =>
+    view: ({ title, searchValue, searchResultDropDownOpen, cities, city }) =>
       div(
         {
           class: 'home',
@@ -40,8 +54,8 @@ export default function App({ rootNode }) {
             },
             [
               Header({ title }),
-              SearchControl({ searchValue, searchResultDropDownOpen }),
-              City(),
+              SearchControl({ searchValue, searchResultDropDownOpen, cities }),
+              City({ city }),
             ],
           ),
         ],

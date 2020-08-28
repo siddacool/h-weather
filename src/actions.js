@@ -25,3 +25,10 @@ export const UpdateSearchValue = (state, event) => ({
   searchResultDropDownOpen: true,
   searchValue: event.target.value,
 });
+
+export const PickCity = (state, event, val) => ({
+  ...state,
+  searchResultDropDownOpen: false,
+  searchValue: '',
+  city: val,
+});
