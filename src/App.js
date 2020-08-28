@@ -6,6 +6,9 @@ import SearchControl from './components/SearchControl';
 import City from './components/City';
 import Input from './components/ui/Input';
 
+// actions
+import { SetSearchClose } from './actions';
+
 export default function App({ rootNode }) {
   const AddTodo = (state) => ({
     ...state,
@@ -18,18 +21,28 @@ export default function App({ rootNode }) {
   });
 
   app({
-    init: { title: 'Hey Weather!', todos: [], value: 'Tha Value' },
-    view: ({ title, todos, value }) =>
+    init: {
+      title: 'Hey Weather!',
+      todos: [],
+      value: 'Tha Value',
+      searchResultDropDownOpen: false,
+    },
+    view: ({ title, todos, value, searchResultDropDownOpen }) =>
       div(
         {
           class: 'home',
+          onclick: SetSearchClose,
         },
         [
           div(
             {
-              class: 'bg-gray-300 h-screen',
+              class: 'home-container bg-gray-300 h-screen',
             },
-            [Header({ title }), SearchControl(), City()],
+            [
+              Header({ title }),
+              SearchControl({ searchResultDropDownOpen }),
+              City(),
+            ],
           ),
         ],
       ),

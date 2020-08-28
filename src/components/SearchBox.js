@@ -1,5 +1,7 @@
 import { div, input } from '@hyperapp/html';
 
+import { SetSearchOpen } from '../actions';
+
 const inputStyles = `
   bg-white
   w-full
@@ -31,6 +33,7 @@ export default function SearchBox() {
         class: inputStyles,
         type: 'text',
         placeholder: '🔎 Search City',
+        onfocus: SetSearchOpen,
       }),
     ],
   );
