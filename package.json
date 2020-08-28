@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "",
   "scripts": {
-    "clean": "rimraf ./build ./report",
+    "clean": "rimraf ./build",
     "serve": "npm run clean && cross-env NODE_ENV=development rollup --config --watch",
     "build": "npm run clean && cross-env NODE_ENV=production rollup --config",
     "build:display": "npm run build && lite-server --baseDir='./build'",
