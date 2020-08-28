@@ -5,6 +5,11 @@ module.exports = {
     fontFamily: {
       sans: '"Noto Sans JP", sans-serif',
     },
+    inset: {
+      0: 0,
+      12: '3rem',
+      16: '4rem',
+    },
   },
   variants: {},
   plugins: [],

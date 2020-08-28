@@ -16,6 +16,8 @@ const inputStyles = `
   placeholder-gray-500
   text-gray-700
   tracking-wide
+  relative
+  z-50
 `;
 
 export default function SearchBox() {
