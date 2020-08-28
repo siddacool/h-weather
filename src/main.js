@@ -1,5 +1,5 @@
 import './styles';
-import store from './store';
+import state from './state';
 import App from './App';
 
-App(store);
+App(state);
