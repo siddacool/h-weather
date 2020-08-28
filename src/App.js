@@ -18,24 +18,18 @@ export default function App({ rootNode }) {
   });
 
   app({
-    init: { title: 'Go Weather', todos: [], value: 'Tha Value' },
+    init: { title: 'Hey Weather!', todos: [], value: 'Tha Value' },
     view: ({ title, todos, value }) =>
       div(
         {
           class: 'home',
         },
         [
-          Header({ title }),
-          SearchControl(),
-          City(),
-          Input({
-            value,
-            onInput: NewValue,
-          }),
-          button({ onclick: AddTodo }, text('Add One')),
-          ul(
-            {},
-            todos.map((todo) => li({}, text(todo))),
+          div(
+            {
+              class: 'bg-gray-300 h-screen',
+            },
+            [Header({ title }), SearchControl(), City()],
           ),
         ],
       ),

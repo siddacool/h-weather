@@ -4,13 +4,14 @@ export default function SearchBox() {
   return div(
     {
       class: '',
-      'data-id': 'search-box',
+      'data-id': 'SearchBox',
     },
     [
       input({
-        class: 'border border-solid border-gray-500',
+        class:
+          'bg-white w-full h-12 px-4 text-base font-semibold rounded-md shadow focus:shadow-lg transition-shadow duration-200 outline-none placeholder-gray-500 text-gray-700 tracking-wide',
         type: 'text',
-        placeholder: 'Search City',
+        placeholder: '🔎 Search City',
       }),
     ],
   );
