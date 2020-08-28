@@ -1,6 +1,6 @@
 import { div, input } from '@hyperapp/html';
 
-import { SetSearchOpen } from '../actions';
+import { UpdateSearchValue } from '../actions';
 
 const inputStyles = `
   bg-white
@@ -22,7 +22,7 @@ const inputStyles = `
   z-50
 `;
 
-export default function SearchBox() {
+export default function SearchBox({ searchValue }) {
   return div(
     {
       class: '',
@@ -33,7 +33,8 @@ export default function SearchBox() {
         class: inputStyles,
         type: 'text',
         placeholder: '🔎 Search City',
-        onfocus: SetSearchOpen,
+        value: searchValue,
+        oninput: UpdateSearchValue,
       }),
     ],
   );

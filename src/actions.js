@@ -20,7 +20,8 @@ export const SetSearchClose = (state, event) => {
   return state;
 };
 
-export const AddTodoOne = (state) => ({
+export const UpdateSearchValue = (state, event) => ({
   ...state,
-  todos: state.todos.concat(state.value),
+  searchResultDropDownOpen: true,
+  searchValue: event.target.value,
 });

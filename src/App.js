@@ -24,10 +24,10 @@ export default function App({ rootNode }) {
     init: {
       title: 'Hey Weather!',
       todos: [],
-      value: 'Tha Value',
+      searchValue: '',
       searchResultDropDownOpen: false,
     },
-    view: ({ title, todos, value, searchResultDropDownOpen }) =>
+    view: ({ title, searchValue, searchResultDropDownOpen }) =>
       div(
         {
           class: 'home',
@@ -40,7 +40,7 @@ export default function App({ rootNode }) {
             },
             [
               Header({ title }),
-              SearchControl({ searchResultDropDownOpen }),
+              SearchControl({ searchValue, searchResultDropDownOpen }),
               City(),
             ],
           ),
